@@ -5,7 +5,7 @@
       //function that display value
       // change name of display value
       function dis(val) {
-        document.getElementById("result").value += val;
+        document.getElementById("plaintext").value += val;
         newval = translate(val); // remember to store value
         encrypt(newval);
       }
@@ -51,16 +51,23 @@
 
       //function that evaluates the digit and return result
       function solve() {
-        let x = document.getElementById("result").value;
+        let x = document.getElementById("plaintext").value;
         let y = eval(x);
-        document.getElementById("result").value = y;
+        document.getElementById("plaintext").value = y;
       }
 
       //function that clear the display
       function clr() {
-        document.getElementById("result").value = "";
+        document.getElementById("plaintext").value = "";
         document.getElementById("crypt").value = "";
 
+      }
+            //function that deletes that last element, REMEMBER to put button
+            function del() {
+        stringresult = document.getElementById("plaintext").value;
+        stringcrypt = document.getElementById("crypt").value;
+        document.getElementById("plaintext").value = stringreuslt.substring(0, stringresult.length - 2); // fin lenght and use substring
+              // do this for crypt
       }
     </script>
     <!-- for styling -->
@@ -71,6 +78,7 @@
         width: 210px;
         color: black;
         border: solid black 2px;
+        font-family: "Open Sans";
       }
 
       input[type="button"] {
@@ -78,12 +86,15 @@
         color: black;
         border: solid black 2px;
         width: 100%;
+        text-align: center;
+        font-family: "Open Sans";
       }
 
       input[type="text"] {
         background-color: white;
         border: solid black 2px;
         width: 100%;
+        text-align: center; 
       }
     </style>
   </head>
@@ -115,6 +126,8 @@
         <!-- <td><input type="button" value="c" onclick="clr()"/> </td>   <td><input type="button" value="." onclick="dis('.')"/> </td>  -->
         <td><input type="button" value="c" onclick="clr()" /></td>
         <td><input type="button" value="0" onclick="dis('0')" /></td>
+        <td><input type="button" value="del" onclick="del()" /></td>
+
         <!-- put backspace here  -->
         <!-- solve function call function solve to evaluate value -->
         <!-- <td><input type="button" value="=" onclick="solve()"/> </td>  -->
@@ -124,7 +137,7 @@
         <td colspan="3"><p>Your Number</p></td>
       </tr>
       <tr>
-        <td colspan="3"><input type="text" id="result" /></td>
+        <td colspan="3"><input type="text" id="plaintext" /></td>
       </tr>
       <tr>
         <td colspan="3"><p>Encrypted Number</p></td>
