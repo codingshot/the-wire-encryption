@@ -1,4 +1,5 @@
 <html>
+  <link rel="stylesheet" href="hover.css">
   <head>
       <img width="200" src= "https://i.groupme.com/532x379.png.e718238825984b37bb63ab1185f1779f.large"></img>
     <script>
@@ -66,8 +67,9 @@
             function del() {
         stringresult = document.getElementById("plaintext").value;
         stringcrypt = document.getElementById("crypt").value;
-        document.getElementById("plaintext").value = stringreuslt.substring(0, stringresult.length - 2); // fin lenght and use substring
-              // do this for crypt
+        document.getElementById("plaintext").value = stringresult.substring(0,stringresult.length - 1); // fin lenght and use substring
+        document.getElementById("crypt").value = stringcrypt.substring(0,stringcrypt.length - 1); // fin lenght and use substring
+
       }
     </script>
     <!-- for styling -->
@@ -88,6 +90,8 @@
         width: 100%;
         text-align: center;
         font-family: "Open Sans";
+        
+        
       }
 
       input[type="text"] {
