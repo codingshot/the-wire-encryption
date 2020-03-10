@@ -1,0 +1,154 @@
+<html>
+  <link rel="stylesheet" href="hover.css">
+  <head>
+      <img width="200" src= "https://i.groupme.com/532x379.png.e718238825984b37bb63ab1185f1779f.large"></img>
+    <script>
+      //function that display value
+      // change name of display value
+      function dis(val) {
+        document.getElementById("plaintext").value += val;
+        newval = translate(val); // remember to store value
+        encrypt(newval);
+      }
+      // helper function to translate value
+      function translate(val) {
+        let newval = -1;
+        if (val == 0) {
+            newval = 5;
+        }
+        if (val == 1) {
+            newval = 9;
+        }
+        if (val == 2) {
+            newval = 8;
+        }
+        if (val == 3) {
+            newval = 7;
+        }
+        if (val == 4) {
+            newval = 6;
+        }
+        if (val == 5) {
+            newval = 0;
+        }
+        if (val == 6) {
+            newval = 4;
+        }
+        if (val == 7) {
+            newval = 3;
+        }
+        if (val == 8) {
+            newval = 2;
+        }
+        if (val == 9) {
+            newval = 1;
+        }
+        return newval;
+      }
+      // encrypt
+      function encrypt(val) {
+        document.getElementById("crypt").value += val;
+      }
+
+      //function that evaluates the digit and return result
+      function solve() {
+        let x = document.getElementById("plaintext").value;
+        let y = eval(x);
+        document.getElementById("plaintext").value = y;
+      }
+
+      //function that clear the display
+      function clr() {
+        document.getElementById("plaintext").value = "";
+        document.getElementById("crypt").value = "";
+
+      }
+            //function that deletes that last element, REMEMBER to put button
+            function del() {
+        stringresult = document.getElementById("plaintext").value;
+        stringcrypt = document.getElementById("crypt").value;
+        document.getElementById("plaintext").value = stringresult.substring(0,stringresult.length - 1); // fin lenght and use substring
+        document.getElementById("crypt").value = stringcrypt.substring(0,stringcrypt.length - 1); // fin lenght and use substring
+
+      }
+    </script>
+    <!-- for styling -->
+    <style>
+      .title {
+        margin-bottom: 10px;
+        text-align: center;
+        width: 210px;
+        color: black;
+        border: solid black 2px;
+        font-family: "Open Sans";
+      }
+
+      input[type="button"] {
+        background-color: gray;
+        color: black;
+        border: solid black 2px;
+        width: 100%;
+        text-align: center;
+        font-family: "Open Sans";
+        
+        
+      }
+
+      input[type="text"] {
+        background-color: white;
+        border: solid black 2px;
+        width: 100%;
+        text-align: center; 
+      }
+    </style>
+  </head>
+  <!-- create table -->
+  <body>
+    <div class="title">Jump the Five Encryption</div>
+    <table border="1">
+      <tr>
+        <!-- create button and assign value to each button -->
+        <!-- dis("1") will call function dis to display value -->
+        <td><input type="button" value="1" onclick="dis('1')" /></td>
+        <td><input type="button" value="2" onclick="dis('2')" /></td>
+        <td><input type="button" value="3" onclick="dis('3')" /></td>
+        <!-- <td><input type="button" value="/" onclick="dis('/')"/> </td>  -->
+      </tr>
+      <tr>
+        <td><input type="button" value="4" onclick="dis('4')" /></td>
+        <td><input type="button" value="5" onclick="dis('5')" /></td>
+        <td><input type="button" value="6" onclick="dis('6')" /></td>
+        <!-- <td><input type="button" value="-" onclick="dis('-')"/> </td>  -->
+      </tr>
+      <tr>
+        <td><input type="button" value="7" onclick="dis('7')" /></td>
+        <td><input type="button" value="8" onclick="dis('8')" /></td>
+        <td><input type="button" value="9" onclick="dis('9')" /></td>
+        <!-- <td><input type="button" value="+" onclick="dis('+')"/> </td>  -->
+      </tr>
+      <tr>
+        <!-- <td><input type="button" value="c" onclick="clr()"/> </td>   <td><input type="button" value="." onclick="dis('.')"/> </td>  -->
+        <td><input type="button" value="c" onclick="clr()" /></td>
+        <td><input type="button" value="0" onclick="dis('0')" /></td>
+        <td><input type="button" value="del" onclick="del()" /></td>
+
+        <!-- put backspace here  -->
+        <!-- solve function call function solve to evaluate value -->
+        <!-- <td><input type="button" value="=" onclick="solve()"/> </td>  -->
+        <!-- <td><input type="button" value="*" onclick="dis('*')"/> </td>  -->
+      </tr>
+      <tr>
+        <td colspan="3"><p>Your Number</p></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="text" id="plaintext" /></td>
+      </tr>
+      <tr>
+        <td colspan="3"><p>Encrypted Number</p></td>
+      </tr>
+      <tr>
+        <td colspan="3"><input type="text" id="crypt" /></td>
+      </tr>
+    </table>
+  </body>
+</html>
