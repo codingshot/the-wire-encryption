@@ -1,4 +1,6 @@
 # The Wire Encryption
+https://codingshot.github.io/the-wire-encryption/
+
 ### AKA "Jump the Five"
 
 From the HBO Series "The Wire" where street dealers using a simple encryption technique where they jump over the five in order to decrypt phone numbers they use to communicate to each other. 
